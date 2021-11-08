@@ -1,0 +1,4 @@
+.movie-app > .row {
+  margin: auto;
+  flex-wrap: wrap;
+}
