@@ -22,9 +22,21 @@
   font-size: 15px;
 }
 
-.image-container:hover .overlay {
+.rating{
+  font-size: 15px;
+  transition: 0.5s ease;
+  opacity: 0;
+  margin-left: 75%;
+}
+
+.image-container:hover .overlay{
   opacity: 1;
 }
+
+.image-container:hover .rating{
+  opacity: 1;
+}
+
 
 .movie-title {
   color: #f5f5f5f1;
