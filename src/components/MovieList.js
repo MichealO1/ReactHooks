@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import "../assests/style/MovieList.css";
 
 const MovieList = ({
@@ -46,13 +47,13 @@ const MovieList = ({
     <>
       {movies.map((movie, index) => (
         <div className="col-md-4 image-container" key={`movie-card-${index}`}>
-          {movie.Poster !== "N/A" && <img src={movie.Poster} alt="Poster" />}
-
+          <Link to={`/trailer/${movie.imdbID}`}>
+            {movie.Poster !== "N/A" && <img src={movie.Poster} alt="Poster" />}
+          </Link>
           <h3 className="movie-title">{movie.Title}</h3>
 
           {(favourites && !favourites.includes(movie.imdbID)) || !favourites ? (
             <button
-              // onClick={() => handleFavouritesClick(movie)}
               onClick={() => handleFavouritesClick(movie.imdbID)}
               className="overlay btn btn-dark btn-lg"
             >
@@ -62,7 +63,6 @@ const MovieList = ({
             ""
           )}
           {movie.imdbRating && <h5 className="rating">{movie.imdbRating}</h5>}
-          {/* {movie.Plot !== "N/A" && <h5 className="year">{movie.Plot}</h5>} */}
         </div>
       ))}
     </>
